@@ -8,7 +8,7 @@
 	<version>1.0</version>
 	<packaging>war</packaging>
 
-	<name>rookie-gift</name>
+	<name>gift</name>
 	<url>http://maven.apache.org</url>
 
 	<parent>

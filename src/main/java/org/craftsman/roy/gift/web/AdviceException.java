@@ -19,6 +19,7 @@ public class AdviceException {
 	@ExceptionHandler(value = Exception.class)
 	@ResponseBody
 	public HttpResult dex(HttpServletRequest request, Exception ex) throws Exception {
+		ex.printStackTrace();
 		if (ex instanceof ApiException) {
 			ApiException ae = (ApiException) ex;
 			return HttpResult.err().setCode(ae.getCode()).setMsg(ae.getMsg());

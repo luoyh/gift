@@ -9,6 +9,10 @@ import org.craftsman.roy.gift.App;
  */
 public class HttpResult {
 	
+	public static void main(String[] args) {
+		System.out.println(HttpResult.class.getClassLoader().getSystemResource("").getPath());
+	}
+	
 	private int code;
 	private String msg;
 	private Object data;
