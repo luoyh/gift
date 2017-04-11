@@ -57,12 +57,11 @@
 				$('#account').data('type', 3);
 				$('#modal2').modal('show');
 			});
-			$('.signup-btn').click(function() {
-				var t = $(this).data('type');
+			$('#modal_submit').click(function() {
 				var 
-					realname = $.trim($('#realname'+t).val()),
-					mobile = $.trim($('#mobile'+t).val()),
-					wxqq = $.trim($('#wxqq'+t).val());
+					realname = $.trim($('#realname').val()),
+					mobile = $.trim($('#mobile').val()),
+					wxqq = $.trim($('#wxqq').val());
 
 				if ('' == realname) {
 					alert('名字不能为空');
@@ -85,7 +84,6 @@
 						alert(r.msg);
 					} else {
 						alert('申请已提交,请等待审核.');
-						$('.signup').remove();
 						$('#modal1').modal('hide');
 						$('#modal1').data('reg', 1);
 					}
@@ -156,29 +154,6 @@
 		</div>
 	</div>
 	<div class="col-xs-12 box">
-		<div class="take signup" style="border: 1px solid #fa4e01;">
-			<div class="form-horizontal" style="margin-top: 20px;">
-			  <div class="form-group">
-				<div class="col-xs-7 col-xs-offset-3">
-				  <input type="text" class="form-control" id="realname1" placeholder="姓名">
-				</div>
-			  </div>
-			  <div class="form-group">
-				<div class="col-xs-7 col-xs-offset-3">
-				  <input type="text" class="form-control" id="mobile1" placeholder="电话">
-				</div>
-			  </div>
-			  <div class="form-group">
-				<div class="col-xs-7 col-xs-offset-3">
-				  <input type="text" class="form-control" id="wxqq1" placeholder="微信/QQ">
-				</div>
-			  </div>
-			  <div class="form-group" style="text-align: center;">
-				<button type="button" class="btn signup-btn" data-type="1" style="background: #f62b43;font-weight: bold;border-color: #f62b43;color:#fff;">马上预约</button>
-			  </div>
-			</div>
-		</div>
-
 		<div class="take">
 			<img class="take-bg" src="${base}/images/no1.png">
 			<img class="take-btn" id="id3" src="${base}/images/take.png">
@@ -246,25 +221,25 @@
 		  <div class="form-group">
 		    <label class="col-xs-3 control-label" style="text-align: right;">姓名:</label>
 		    <div class="col-xs-7">
-		      <input type="text" class="form-control" id="realname2" placeholder="姓名">
+		      <input type="text" class="form-control" id="realname" placeholder="姓名">
 		    </div>
 		  </div>
 		  <div class="form-group">
 		    <label class="col-xs-3 control-label" style="text-align: right;">电话:</label>
 		    <div class="col-xs-7">
-		      <input type="text" class="form-control" id="mobile2" placeholder="电话">
+		      <input type="text" class="form-control" id="mobile" placeholder="电话">
 		    </div>
 		  </div>
 		  <div class="form-group">
 		    <label class="col-xs-3 control-label" style="text-align: right;">微信/QQ:</label>
 		    <div class="col-xs-7">
-		      <input type="text" class="form-control" id="wxqq2" placeholder="微信/QQ">
+		      <input type="text" class="form-control" id="wxqq" placeholder="微信/QQ">
 		    </div>
 		  </div>
 		</div>
       </div>
       <div class="modal-footer" style="text-align: center;">
-        <button type="button" class="btn signup-btn" data-type="2" style="background: #f62b43;font-weight: bold;border-color: #f62b43;color:#fff;">提交</button>
+        <button id="modal_submit" type="button" class="btn" style="background: #f62b43;font-weight: bold;border-color: #f62b43;color:#fff;">提交</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -342,6 +317,5 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 </div>
-<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan style=display:none; id='cnzz_stat_icon_1261575475'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1261575475' type='text/javascript'%3E%3C/script%3E"));</script>
 </body>
 </html>

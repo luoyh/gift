@@ -2,7 +2,9 @@ package org.craftsman.roy.gift.service;
 
 import org.craftsman.roy.gift.App;
 import org.craftsman.roy.gift.ex.ApiException;
+import org.craftsman.roy.gift.model.Five;
 import org.craftsman.roy.gift.model.Member;
+import org.craftsman.roy.gift.repository.FiveRepository;
 import org.craftsman.roy.gift.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -22,6 +24,21 @@ public class MemberService {
 	
 	@Autowired
 	private MemberRepository memberRepository;
+	@Autowired
+	private FiveRepository fiveRepository;
+	
+	public void fiveInsert(Five five) {
+		try {
+			fiveRepository.save(five);
+		} catch (Exception ex) {
+			throw new ApiException(App.ERR, "此电话已被注册");
+		}
+	}
+
+	public Page<Five> listFive(int page, int size) {
+		Pageable pageable = new PageRequest(page, size, new Sort(Direction.DESC, "gmtCreated"));
+		return fiveRepository.findAll(pageable);
+	}
 	
 	public void insert(Member member) {
 		try {

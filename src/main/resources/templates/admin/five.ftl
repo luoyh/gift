@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="luoyh">
-	<title>新手礼包</title>
+	<title>500现金</title>
 	<link href="${base}/lib/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="${base}/lib/page/page.css">
 	
@@ -49,7 +49,7 @@ Date.prototype.format = function(fmt)
   return fmt;   
 } ;
 		var search = function(page, size) {
-			$.get(root + '/admin/member/page', {
+			$.get(root + '/admin/five/page', {
 				page: page,
 				size: size
 			}, function(r) {
@@ -58,7 +58,6 @@ Date.prototype.format = function(fmt)
 					htm += '<tr>\
 								<td>'+e.realname+'</td>\
 								<td>'+e.mobile+'</td>\
-								<td>'+e.wxqq+'</td>\
 								<td>'+new Date(e.gmtCreated).format('yyyy-MM-dd hh:mm:ss')+'</td>\
 							</tr>';
 				});
@@ -81,8 +80,8 @@ Date.prototype.format = function(fmt)
 <body>
     <div class="container">
     	<div style="width: 600px; margin: 50px auto;">
+    		<a href="${base}/admin/dashboard" class="btn btn-default">开户管理</a>
     		<a href="${base}/admin/account" class="btn btn-default">帐号管理</a>
-    		<a href="${base}/admin/five" class="btn btn-default">500现金</a>
     	</div>
 
     	<input type="hidden" id="total" value="${page.totalElements}">
@@ -92,8 +91,7 @@ Date.prototype.format = function(fmt)
 	    		<tr>
 	    			<th>姓名</th>
 	    			<th>电话</th>
-	    			<th>微信/QQ</th>
-				<th>开户时间</th>
+					<th>申请时间</th>
 	    		</tr>
 	    	</thead>
 	    	<tbody>
@@ -101,8 +99,7 @@ Date.prototype.format = function(fmt)
 				    <tr>
 				        <td>${e.realname}</td>
 				        <td>${e.mobile}</td>
-				        <td>${e.wxqq}</td>
-					<td>${e.gmtCreated}</td>
+						<td>${e.gmtCreated}</td>
 				    </tr>
 				</#list>
 	    	</tbody>

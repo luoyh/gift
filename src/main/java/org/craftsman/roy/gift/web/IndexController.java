@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import org.craftsman.roy.gift.App;
 import org.craftsman.roy.gift.common.HttpResult;
 import org.craftsman.roy.gift.model.Account;
+import org.craftsman.roy.gift.model.Five;
 import org.craftsman.roy.gift.model.Member;
 import org.craftsman.roy.gift.service.AccountService;
 import org.craftsman.roy.gift.service.MemberService;
@@ -39,7 +40,13 @@ public class IndexController {
 		model.put("timestamp", System.currentTimeMillis());
 		return "index";
 	}
-
+	
+	@GetMapping("/five")
+	public String five(ModelMap model) {
+		model.put("timestamp", System.currentTimeMillis());
+		return "five";
+	}
+	
 	@GetMapping("/login")
 	public String login() {
 		return "login";
@@ -64,6 +71,18 @@ public class IndexController {
 		member.setGmtCreated(new Date());
 		member.setGmtModified(new Date());
 		memberService.insert(member);
+		return HttpResult.ok();
+	}
+
+	@PostMapping("/five/reg")
+	@ResponseBody
+	public HttpResult fr(@Valid Five five, BindingResult result) {
+		if (result.hasErrors()) {
+			return HttpResult.err().setMsg(result.getFieldError().getDefaultMessage());
+		}
+		five.setGmtCreated(new Date());
+		five.setGmtModified(new Date());
+		memberService.fiveInsert(five);
 		return HttpResult.ok();
 	}
 	

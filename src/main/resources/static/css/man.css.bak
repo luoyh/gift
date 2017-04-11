@@ -48,12 +48,11 @@
 	}
 
 	.top-join {
-		display:none;
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 5px;
 	}
-	.signup {
-		display: block;
-	}
-
 
 	#id1 {
 		height: 30px;
@@ -105,10 +104,7 @@
 	.take-bg {
 		width: 750px;
 	}
-	.signup {
-		display: none;
-	}
-
+	
 	.top-join {
 		position: absolute;
 		left: 0;

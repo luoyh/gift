@@ -1,0 +1,107 @@
+.man {
+	max-width: 750px;
+	margin: auto;
+	position: relative;
+}
+
+.man .bg {
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: -1;
+}
+
+.banner {
+	max-width: 100%;
+    display: block;
+}
+.info {
+    display: block;
+    margin-top: 10%;
+    position: relative;
+}
+.info img {
+    max-width: 100%;
+}
+.introduction {
+	 max-width: 90%;
+    display: block;
+    margin: auto;
+}
+.qrcode {
+	display: block;
+    margin: auto;
+    width: 30%;
+	margin-top: 2%;
+}
+.flow {
+	text-align: center;
+	margin-top: -2%;
+}
+.flow img {
+	width: 25%;
+}
+
+#username {
+	position: absolute;
+    left: 25%;
+    top: 30%;
+    width: 50%;
+    height: 13%;
+    font-size: 1rem;
+}
+#mobile {
+	position: absolute;
+    left: 25%;
+    top: 50%;
+    width: 50%;
+    height: 13%;
+    font-size: 1rem;
+}
+#submit {
+	position: absolute;
+    left: 40%;
+    top: 70%;
+    width: 20%;
+    cursor: pointer;
+}
+.tips {
+    width: 90%;
+    margin: 10px auto;
+    color: #efefef;
+}
+.vertical-alignment-helper {
+    display:table;
+    height: 100%;
+    width: 100%;
+    pointer-events:none;
+}
+.vertical-align-center {
+    /* To center vertically */
+    display: table-cell;
+    vertical-align: middle;
+    pointer-events:none;
+}
+.modal-content {
+    /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
+    width:inherit;
+    height:inherit;
+    /* To center horizontally */
+    margin: 0 auto;
+    pointer-events:all;
+}
+
+
+.tipss {
+    display:inline-block;background:url('../images/xslbimg_03.png');width:20px;height:20px;line-height:20px;background-size:20px 20px;color:#fff;text-align:center;
+    margin-right: 10px;
+}
+
+.level {
+    display: inline-block;
+    margin-left: 20px;
+    color: #f62b43;
+}

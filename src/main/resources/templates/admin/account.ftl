@@ -30,7 +30,24 @@
 		}
 	</style>
 	<script>
-
+Date.prototype.format = function(fmt)   
+{ //author: meizz
+  var o = {   
+    "M+" : this.getMonth()+1,                 //月份
+    "d+" : this.getDate(),                    //日
+    "h+" : this.getHours(),                   //小时
+    "m+" : this.getMinutes(),                 //分
+    "s+" : this.getSeconds(),                 //秒
+    "q+" : Math.floor((this.getMonth()+3)/3), //季度
+    "S"  : this.getMilliseconds()             //毫秒
+  };   
+  if(/(y+)/.test(fmt))   
+    fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));   
+  for(var k in o)   
+    if(new RegExp("("+ k +")").test(fmt))   
+  fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));   
+  return fmt;   
+} 
 		var search = function(page, size) {
 			$.get(root + '/admin/account/page', {
 				account: '',
@@ -43,6 +60,7 @@
 								<td>'+e.acc+'</td>\
 								<td>'+(e.type != 1 ? e.type == 2 ? '茅台' : '手机' : '500红包')+'</td>\
 								<td>'+(e.used == 0 ? '<span class="label label-success">未使用</span>' : '<span class="label label-warning">已使用</span>')+'</td>\
+								<td>'+new Date(e.gmtCreated).format('yyyy-MM-dd hh:mm:ss')+'</td>\
 							</tr>';
 				});
 				$('tbody').html(htm);
@@ -85,6 +103,7 @@
     <div class="container">
     	<div style="width: 600px; margin: 50px auto;">
     		<a href="${base}/admin/dashboard" class="btn btn-default">开户管理</a>
+    		<a href="${base}/admin/five" class="btn btn-default">500现金</a>
 		    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
 		    	增加帐号
 			</button>
@@ -98,6 +117,7 @@
 	    			<th>帐号</th>
 	    			<th>礼包类型</th>
 	    			<th>是否使用</th>
+				<th>录入时间</th>
 	    		</tr>
 	    	</thead>
 	    	<tbody>
@@ -115,6 +135,7 @@
 							</#if> 
 						</td>
 				        <td>${(e.used == 0) ? then('<span class="label label-success">未使用</span>', '<span class="label label-warning">已使用</span>')}</td>
+						<td>${e.gmtCreated}</td>
 				    </tr>
 				</#list>
 	    	</tbody>

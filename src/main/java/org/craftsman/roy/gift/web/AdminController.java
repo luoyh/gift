@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.craftsman.roy.gift.App;
 import org.craftsman.roy.gift.common.HttpResult;
 import org.craftsman.roy.gift.model.Account;
+import org.craftsman.roy.gift.model.Five;
 import org.craftsman.roy.gift.model.Member;
 import org.craftsman.roy.gift.service.AccountService;
 import org.craftsman.roy.gift.service.MemberService;
@@ -39,6 +40,12 @@ public class AdminController {
 		model.put("page", memberService.list(0, 50));
 		return "admin/dashboard";
 	}
+
+	@GetMapping("/five")
+	public String five(ModelMap model) {
+		model.put("page", memberService.listFive(0, 50));
+		return "admin/five";
+	}
 	
 	@GetMapping("/account")
 	public String account(ModelMap model) {
@@ -50,6 +57,12 @@ public class AdminController {
 	@ResponseBody
 	public Page<Member> page(Integer page, Integer size) {
 		return memberService.list(null == page ? 0 : page, null == size ? 50 : size);
+	}
+
+	@GetMapping("/five/page")
+	@ResponseBody
+	public Page<Five> fivePage(Integer page, Integer size) {
+		return memberService.listFive(null == page ? 0 : page, null == size ? 50 : size);
 	}
 	
 	@PostMapping("/account")
